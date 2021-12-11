@@ -26,11 +26,14 @@ public class Cal extends HttpServlet {
             b = Integer.parseInt(b_);
 
         int result = switch (bt) {
-            case "plus" -> a + b;
-            case "minus" -> a - b;
-            case "multiple" -> a * b;
+            case "+" -> a + b;
+            case "-" -> a - b;
+            case "x" -> a * b;
             default -> a / b;
         };
         out.println("계산결과: " + result);
     }
 }
+
+
+

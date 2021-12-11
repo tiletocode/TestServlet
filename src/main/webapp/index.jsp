@@ -13,10 +13,10 @@
         <input name="b" type="number">
     </div>
     <div>
-        <input type="submit" name="button" value="plus">
-        <input type="submit" name="button" value="minus"><br>
-        <input type="submit" name="button" value="multiple">
-        <input type="submit" name="button" value="divide">
+        <input type="submit" name="button" value="+">
+        <input type="submit" name="button" value="-"><br>
+        <input type="submit" name="button" value="x">
+        <input type="submit" name="button" value="/">
     </div>
 </form>
 </body>

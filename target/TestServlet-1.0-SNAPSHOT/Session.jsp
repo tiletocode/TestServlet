@@ -3,20 +3,20 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>계산기</title>
+    <title>Session 객체</title>
 </head>
 <body>
-<form action="Cal" method="post">
+<form action="Cal_Sess" method="post">
     <div>
         <h1>계산할 값을 입력하세요</h1>
-        <input name="a" type="number">
-        <input name="b" type="number">
+        <input name="v" type="text">
     </div>
     <div>
         <input type="submit" name="button" value="+">
         <input type="submit" name="button" value="-"><br>
         <input type="submit" name="button" value="x">
-        <input type="submit" name="button" value="/">
+        <input type="submit" name="button" value="/"><br>
+        <input type="submit" name="button" value="=">
     </div>
 </form>
 </body>
