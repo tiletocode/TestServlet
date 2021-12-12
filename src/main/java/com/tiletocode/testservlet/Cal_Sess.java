@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "Session", value = "/Cal_Sess")
+@WebServlet("/Cal_Sess")
 public class Cal_Sess extends HttpServlet {
 
     @Override
@@ -18,22 +18,20 @@ public class Cal_Sess extends HttpServlet {
 
         PrintWriter out = resp.getWriter();
         String v_ = req.getParameter("v");
-        String button = req.getParameter("button");
+        String op = req.getParameter("operator");
+
+        HttpSession sess = req.getSession();
 
         int v = 0;
         if(!v_.equals(""))
             v = Integer.parseInt(v_);
-        //Application객체
-        ServletContext app = req.getServletContext();
-        //Session객체
-        HttpSession sess = req.getSession();
-        //계산
-        if (button.equals("=")) {
-            //int x = (Integer)application.getAttribute("value");
+
+        if (op.equals("=")) {
+
             int x = (Integer)sess.getAttribute("value");
             int y = v;
-            //String operator = (String)app.getAttribute("op");
             String operator = (String)sess.getAttribute("op");
+
             int result = 0;
             if (operator.equals("+"))
                 result = x + y;
@@ -45,13 +43,9 @@ public class Cal_Sess extends HttpServlet {
                 result = x / y;
             out.println("result is "+result);
         } else {
-            //값 저장
             sess.setAttribute("value", v);
-            sess.setAttribute("op", button);
-//            app.setAttribute("value", v);
-//            app.setAttribute("op", button);
+            sess.setAttribute("op", op);
         }
-
     }
 }
 

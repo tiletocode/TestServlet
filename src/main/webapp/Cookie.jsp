@@ -3,10 +3,10 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Session 객체</title>
+    <title>Cookie</title>
 </head>
 <body>
-<form action="Cal_Sess" method="post">
+<form action="Cal_Cookie" method="post">
     <div>
         <h1>계산할 값을 입력하세요</h1>
         <input name="v" type="text">

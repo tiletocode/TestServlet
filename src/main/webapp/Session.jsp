@@ -12,11 +12,11 @@
         <input name="v" type="text">
     </div>
     <div>
-        <input type="submit" name="button" value="+">
-        <input type="submit" name="button" value="-"><br>
-        <input type="submit" name="button" value="x">
-        <input type="submit" name="button" value="/"><br>
-        <input type="submit" name="button" value="=">
+        <input type="submit" name="operator" value="+">
+        <input type="submit" name="operator" value="-"><br>
+        <input type="submit" name="operator" value="x">
+        <input type="submit" name="operator" value="/"><br>
+        <input type="submit" name="operator" value="=">
     </div>
 </form>
 </body>
