@@ -11,7 +11,8 @@ import java.io.PrintWriter;
 public class Cal_Cookie extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
 
         PrintWriter out = resp.getWriter();
         String v_ = req.getParameter("v");
@@ -39,21 +40,23 @@ public class Cal_Cookie extends HttpServlet {
                 }
 
             int y = v;
-            int result = 0;
-            if (operator.equals("+"))
-                result = x + y;
-            else if (operator.equals("-"))
-                result = x - y;
-            else if (operator.equals("x"))
-                result = x * y;
-            else
-                result = x / y;
-            out.println("result is "+result);
+            int result = switch (operator) {
+                case "+" -> x + y;
+                case "-" -> x - y;
+                case "x" -> x * y;
+                default -> x / y;
+            };
+            out.write("result is "+result);
         } else {
             Cookie vcookie = new Cookie("value", String.valueOf(v));
             Cookie ocookie = new Cookie("op", op);
+            vcookie.setMaxAge(60 * 60 * 24);
+            vcookie.setPath("/");
+            ocookie.setPath("/");
             resp.addCookie(vcookie);
             resp.addCookie(ocookie);
+
+            resp.sendRedirect("/Cookie.jsp");
         }
     }
 }

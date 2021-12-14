@@ -9,5 +9,6 @@
     <a href="${pageContext.request.contextPath}/Application.jsp">Application</a><br>
     <a href="${pageContext.request.contextPath}/Session.jsp">Session</a><br>
     <a href="${pageContext.request.contextPath}/Cookie.jsp">Cookie</a>
+
 </body>
 </html>

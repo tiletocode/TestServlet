@@ -13,7 +13,8 @@ import java.io.PrintWriter;
 public class Cal_App extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
 
         PrintWriter out = resp.getWriter();
         String v_ = req.getParameter("v");
@@ -31,22 +32,20 @@ public class Cal_App extends HttpServlet {
             int y = v;
             String operator = (String)app.getAttribute("op");
 
-            int result = 0;
-            if (operator.equals("+"))
-                result = x + y;
-            else if (operator.equals("-"))
-                result = x - y;
-            else if (operator.equals("x"))
-                result = x * y;
-            else
-                result = x / y;
+            int result = switch (operator) {
+                case "+" -> result = x + y;
+                case "-" -> result = x - y;
+                case "x" -> result = x * y;
+                default -> result = x / y;
+            };
             out.println("result is "+result);
         } else {
             //값 저장
             app.setAttribute("value", v);
             app.setAttribute("op", op);
-        }
 
+            resp.sendRedirect("/Cookie.jsp");
+        }
     }
 }
 
