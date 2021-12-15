@@ -44,7 +44,7 @@ public class Cal_Sess extends HttpServlet {
             sess.setAttribute("value", v);
             sess.setAttribute("op", op);
 
-            resp.sendRedirect("/Cookie.jsp");
+            resp.sendRedirect("/Session.jsp");
         }
     }
 }

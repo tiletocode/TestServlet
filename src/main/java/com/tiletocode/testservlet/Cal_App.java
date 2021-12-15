@@ -44,7 +44,7 @@ public class Cal_App extends HttpServlet {
             app.setAttribute("value", v);
             app.setAttribute("op", op);
 
-            resp.sendRedirect("/Cookie.jsp");
+            resp.sendRedirect("/Application.jsp");
         }
     }
 }
